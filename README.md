@@ -1,5 +1,5 @@
-On this drive you will find some old versions of code some is working and some is not.
-The attached Video is for version 2.0 (we will update the video soon) code but for better use, Try V2.2.
+On this repo you will find some old versions of code some is working and some is not.
+The attached Video is for version 2.0 code but for better use, Try V2.2.
 YOU may need to download Modified menus and add them to the code in main class to get the best experience.
  
 FOR any comments don't hesitate to contact us.
