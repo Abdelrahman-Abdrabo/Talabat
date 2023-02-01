@@ -1,0 +1,144 @@
+@startuml
+class DTO.restaurant {
+- int index
+- String name
+- String location
+- String HOTLINE
+- String type
+- File menu
+- Queue<order> orders
+- LocalTime timeON
+- {static} int in
++ int getIndex()
++ void setIndex(int)
++ String OnOrOff()
++ File getMenu()
++ void setMenu(File)
++ void setTimeON(LocalTime)
++ void setTimeOFF(LocalTime)
++ String getName()
++ void setName(String)
++ String getLocation()
++ void setLocation(String)
++ String getHOTLINE()
++ void setHOTLINE(String)
++ String getType()
++ void setType(String)
++ Queue<order> getOrders()
++ void setOrders(Queue<order>)
++ String toString()
+}
+class DAO.AllRestaurantsFactory {
++ AllResturants GetRestaurantReference()
+}
+class DTO.reqItem {
+- item i
+- int qun
++ item getI()
++ void setI(item)
++ int getQun()
++ void setQun(int)
++ String toString()
+}
+class DAO.AllUsersFactory {
++ AllUsers GetUsersReference()
+}
+class DAO.AllResturants {
+- List<restaurant> allRes
+- {static} AllResturants all
++ {static} AllResturants GETALLRESTURANTS()
++ void printALl()
++ void AddResturant(restaurant)
++ boolean removeResturant(String)
++ restaurant ChoseByIndex(int)
++ restaurant SearchByHOTLINE(String)
++ List<restaurant> getAllRes()
++ void setAllRes(List<restaurant>)
+}
+interface BAO.UserInterface {
++ void choseRestaurant(int)
++ void printALlRestaurants()
++ void makeOrder(order,int)
++ void ListALlOrders()
++ void Register(String,String,String,String,String)
++ boolean LogIn(String,String)
++ void LogOut()
+}
+class DTO.item {
+- String name
+- int code
+- float price
++ String getName()
++ void setName(String)
++ int getCode()
++ void setCode(int)
++ double getPrice()
++ void setPrice(float)
++ String toString()
+}
+class BAO.User {
+- AllRestaurantsFactory factory
+- AllUsersFactory usersFactory
+- boolean LOGGEDIN
+- String name
+- List<order> AllMyOrders
+~ Scanner scanner
++ void printALlRestaurants()
++ void choseRestaurant(int)
+- void pay(order)
++ void makeOrder(order,int)
++ void ListALlOrders()
++ void Register(String,String,String,String,String)
++ boolean LogIn(String,String)
++ void LogOut()
++ String getName()
++ void setName(String)
++ String getEmail()
++ void setEmail(String)
++ String getPassword()
++ void setPassword(String)
++ String getLocation()
++ void setLocation(String)
++ String getPhoneNumber()
++ void setPhoneNumber(String)
++ List<order> getAllMyOrders()
++ void setAllMyOrders(List<order>)
+}
+class DAO.AllUsers {
+- List<User> AllUsers
+- {static} AllUsers all
++ {static} AllUsers GETALLUSERS()
++ void printALl()
++ List<User> getAllUsers()
++ User GetByEmail(String)
++ void AddUser(User)
++ boolean IsHere(User)
+}
+interface DAO.AllUsersInterface {
++ void printALl()
++ List<User> getAllUsers()
++ User GetByEmail(String)
++ void AddUser(User)
+}
+class DTO.order {
+- List<reqItem> reustedItems
+- boolean paied
++ List<reqItem> getReustedItems()
++ void setReustedItems(List<reqItem>)
++ boolean isPaied()
++ void setPaied(boolean)
++ String toString()
+}
+interface DAO.AllResInterface {
++ void printALl()
++ List<restaurant> getAllRes()
++ restaurant ChoseByIndex(int)
++ void AddResturant(restaurant)
++ boolean removeResturant(String)
+}
+
+
+DAO.AllResInterface <|.. DAO.AllResturants
+BAO.UserInterface <|.. BAO.User
+DAO.AllUsersInterface <|.. DAO.AllUsers
+@enduml
